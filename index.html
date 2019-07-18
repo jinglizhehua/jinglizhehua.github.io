@@ -27,6 +27,7 @@
     <input size=5 id="equ_b_3">
 	</br>
 	<button onclick="solve_equ()">解方程</button>
+	<button onclick="clear()">清空</button>
 	<br/>
 	<text id="equ_text">
 </body>
@@ -60,6 +61,21 @@
 		var outy = "y =\t" + huaJianFenShu(value2, value0) + "\n\t = " + value2/value0 + ";\n";
 		var outz = "z =\t" + huaJianFenShu(value3, value0) + "\n\t = " + value3/value0 + ";\n";
 		equ_t.innerText = outx + outy + outz;
+	}
+	
+	function clear () {
+		document.getElementById("equ_x_1").value = "";
+		document.getElementById("equ_x_2").value = "";
+		document.getElementById("equ_x_3").value = "";
+		document.getElementById("equ_y_1").value = "";
+		document.getElementById("equ_y_2").value = "";
+		document.getElementById("equ_y_3").value = "";
+		document.getElementById("equ_z_1").value = "";
+		document.getElementById("equ_z_2").value = "";
+		document.getElementById("equ_z_3").value = "";
+		document.getElementById("equ_b_1").value = "";
+		document.getElementById("equ_b_2").value = "";
+		document.getElementById("equ_b_3").value = "";
 	}
 	
 	function twohl (a, b, c, d) {
