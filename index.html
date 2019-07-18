@@ -12,23 +12,23 @@
 <body>
     <h1>Hello Github</h1>
     <input size=5 id="equ_x_1" onkeyup="inputCheck(this.id);"> x +
-    <input size=5 id="equ_y_1"> y + 
-    <input size=5 id="equ_z_1"> z =
-    <input size=5 id="equ_b_1">
+    <input size=5 id="equ_y_1" onkeyup="inputCheck(this.id);"> y + 
+    <input size=5 id="equ_z_1" onkeyup="inputCheck(this.id);"> z =
+    <input size=5 id="equ_b_1" onkeyup="inputCheck(this.id);">
 	</br>
-	<input size=5 id="equ_x_2"> x +
-    <input size=5 id="equ_y_2"> y + 
-    <input size=5 id="equ_z_2"> z =
-    <input size=5 id="equ_b_2">
+	<input size=5 id="equ_x_2" onkeyup="inputCheck(this.id);"> x +
+    <input size=5 id="equ_y_2" onkeyup="inputCheck(this.id);"> y + 
+    <input size=5 id="equ_z_2" onkeyup="inputCheck(this.id);"> z =
+    <input size=5 id="equ_b_2" onkeyup="inputCheck(this.id);">
 	</br>
-	<input size=5 id="equ_x_3"> x +
-    <input size=5 id="equ_y_3"> y + 
-    <input size=5 id="equ_z_3"> z =
-    <input size=5 id="equ_b_3">
+	<input size=5 id="equ_x_3" onkeyup="inputCheck(this.id);"> x +
+    <input size=5 id="equ_y_3" onkeyup="inputCheck(this.id);"> y + 
+    <input size=5 id="equ_z_3" onkeyup="inputCheck(this.id);"> z =
+    <input size=5 id="equ_b_3" onkeyup="inputCheck(this.id);">
 	</br>
-	<button onclick="solve_equ()">解方程</button>
-	<button onclick="clear()">清空</button>
-	<br/>
+	<button onclick="solve_equ()">解方程</button> 
+	<button onclick="clear_all()">清空</button>
+	</br>
 	<text id="equ_text">
 </body>
 
@@ -63,7 +63,7 @@
 		equ_t.innerText = outx + outy + outz;
 	}
 	
-	function clear () {
+	function clear_all () {
 		document.getElementById("equ_x_1").value = "";
 		document.getElementById("equ_x_2").value = "";
 		document.getElementById("equ_x_3").value = "";
