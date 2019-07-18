@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>镜里折花</title>
     <style type="text/css">
         h1{
@@ -12,17 +11,97 @@
 </head>
 <body>
     <h1>Hello Github</h1>
-    <h2>终于弄好了</h2>
-    <p>
-        #include &ltiostream&gt<br><br>
-        
-        using namespace std;<br><br>
-        
-        int main()<br>
-        {<br>
-        &nbsp&nbsp&nbsp&nbsp cout &nbsp&lt&lt&nbsp "我很开心!" &nbsp&lt&lt&nbsp endl;<br>
-        &nbsp&nbsp&nbsp&nbsp return 0;<br>
-        }<br>
-    </p>
+    <input size=5 id="equ_x_1" onkeyup="inputCheck(this.id);"> x +
+    <input size=5 id="equ_y_1"> y + 
+    <input size=5 id="equ_z_1"> z =
+    <input size=5 id="equ_b_1">
+	</br>
+	<input size=5 id="equ_x_2"> x +
+    <input size=5 id="equ_y_2"> y + 
+    <input size=5 id="equ_z_2"> z =
+    <input size=5 id="equ_b_2">
+	</br>
+	<input size=5 id="equ_x_3"> x +
+    <input size=5 id="equ_y_3"> y + 
+    <input size=5 id="equ_z_3"> z =
+    <input size=5 id="equ_b_3">
+	</br>
+	<button onclick="solve_equ()">解方程</button>
+	<br/>
+	<text id="equ_text">
 </body>
+
+<script>
+	function solve_equ () {
+		var x1 = eval(document.getElementById("equ_x_1").value);
+		var x2 = eval(document.getElementById("equ_x_2").value);
+		var x3 = eval(document.getElementById("equ_x_3").value);
+		var y1 = eval(document.getElementById("equ_y_1").value);
+		var y2 = eval(document.getElementById("equ_y_2").value);
+		var y3 = eval(document.getElementById("equ_y_3").value);
+		var z1 = eval(document.getElementById("equ_z_1").value);
+		var z2 = eval(document.getElementById("equ_z_2").value);
+		var z3 = eval(document.getElementById("equ_z_3").value);
+		var b1 = eval(document.getElementById("equ_b_1").value);
+		var b2 = eval(document.getElementById("equ_b_2").value);
+		var b3 = eval(document.getElementById("equ_b_3").value);
+		equ_t = document.getElementById("equ_text");
+		
+		var value0 = threehl(x1, y1, z1, x2, y2, z2, x3, y3, z3);
+		if(value0 == 0){
+			equ_t.innerText = "此方程无解！！\n";
+			return ;
+		}
+		var value1 = threehl(b1, y1, z1, b2, y2, z2, b3, y3, z3);
+		var value2 = threehl(x1, b1, z1, x2, b2, z2, x3, b3, z3);
+		var value3 = threehl(x1, y1, b1, x2, y2, b2, x3, y3, b3);
+		
+		var outx = "x =\t" + huaJianFenShu(value1, value0) + "\n\t = " + value1/value0 + ";\n";
+		var outy = "y =\t" + huaJianFenShu(value2, value0) + "\n\t = " + value2/value0 + ";\n";
+		var outz = "z =\t" + huaJianFenShu(value3, value0) + "\n\t = " + value3/value0 + ";\n";
+		equ_t.innerText = outx + outy + outz;
+	}
+	
+	function twohl (a, b, c, d) {
+		return (a*d - b*c);
+	}
+	
+	function threehl (a1, b1, c1, a2, b2, c2, a3, b3, c3) {
+		return (a1*twohl(b2, c2, b3, c3) - b1*twohl(a2, c2, a3, c3) + c1*twohl(a2, b2, a3, b3));
+	}
+	
+	function huaJianFenShu (a, b) {
+		if(b == 0){
+			return "inf";
+		}
+		var x = 0;
+		var y = parseInt(a);
+		var q = 0;
+		var r = parseInt(b);
+		while(r != 0){
+			x = y;
+			y = r;
+			q = parseInt(x / y);
+			r = x - q*y;
+		}
+		
+		if(a == 0){
+			return "0"
+		}
+		else if (b/y == 1) {
+			return ("" + a/y)
+		}
+		return (a/y + "/" + b/y);
+	}
+	
+	function inputCheck(x) {
+		var y = document.getElementById(x);
+		y.value = y.value.replace(/[^0-9./-]/g,'');		//除去字母及其他符号
+		y.value = y.value.replace(/(?<=.)-/g,'');		//除去多余的-号
+		y.value = y.value.replace(/(?<=\..*)\./g,'');	//除去多余的小数点
+		y.value = y.value.replace(/(?<=\..*)[/]/g,'');	//不允许小数后有除号
+		y.value = y.value.replace(/(?<=[/].*)[/]/g,'');	//不允许出现两次及以上除号
+	}
+	
+</script>
 </html>
