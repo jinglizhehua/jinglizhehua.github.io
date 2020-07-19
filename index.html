@@ -11,15 +11,27 @@
 <link type=image/x-icon rel="shortcut icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><link rel=canonical href="http://yqtb.nwpu.edu.cn/wx/xg/yz-mobile/qj_info.jsp?id=4i973u8veaiqknfpqt68pkn6pa37ub16"></head>
 <body class=ispc>
     <script>
+        flag = 0;
+        $(document).on('touchstart','.',function(e){
+            	e.preventDefault();
+            	flag  =  1;
+            })
+        $(document).on('touchmove','.',function(e){
+             flag  =  0;
+            })
+    </script>
+    <script>
     function change_text(e_id, mo_ren){
-        var str = prompt("请输入修改内容","");
-        if(str == null){
-            str = mo_ren
+        if(flag == 1){
+            var str = prompt("请输入修改内容","");
+            if(str == null){
+                str = mo_ren
+            }
+            if(str == ''){
+                str = mo_ren
+            }
+            document.getElementById(e_id).innerText = str;
         }
-        if(str == ''){
-            str = mo_ren
-        }
-        document.getElementById(e_id).innerText = str;
     }
 </script>
 <div class="container leavedetails">
