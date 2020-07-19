@@ -11,24 +11,20 @@
 <link type=image/x-icon rel="shortcut icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><link rel=canonical href="http://yqtb.nwpu.edu.cn/wx/xg/yz-mobile/qj_info.jsp?id=4i973u8veaiqknfpqt68pkn6pa37ub16"></head>
 <body class=ispc>
     <script>
-        flag = 0;
-        $(document).on('touchstart','.',function(e){
-            	e.preventDefault();
-            	flag  =  1;
-            })
-        $(document).on('touchmove','.',function(e){
-             flag  =  0;
-            })
-    </script>
-    <script>
+     flag = 0;
+     function clear_flag(){
+         flag = 0;
+     }
     function change_text(e_id, mo_ren){
-        if(flag == 1){
+        flag = flag + 1;
+        if(flag >= 3){
+            flag = 0;
             var str = prompt("请输入修改内容","");
             if(str == null){
-                str = mo_ren
+                str = mo_ren;
             }
             if(str == ''){
-                str = mo_ren
+                str = mo_ren;
             }
             document.getElementById(e_id).innerText = str;
         }
@@ -41,11 +37,11 @@
  
  
  <div class=info>
- <div class=avatar id=small_name ontouchend="change_text('small_name', '倩倩')" style=width:45px;height:45px;font-size:17px>
+ <div class=avatar id=small_name ontouchmove="clear_flag()" ontouchend="change_text('small_name', '倩倩')" style=width:45px;height:45px;font-size:17px>
  倩倩</div>
  <div class=name>
  
- <span style=font-size:16px id=big_name ontouchend="change_text('big_name', '程倩倩')">程倩倩</span>
+ <span style=font-size:16px id=big_name ontouchmove="clear_flag()" ontouchend="change_text('big_name', '程倩倩')">程倩倩</span>
  <span style=font-size:12px;color:#cac0c0fa>审批已通过</span>
  </div>
  </div>
@@ -53,42 +49,42 @@
  <div class=box>
  <div class=item>
  <span class=title>所在学院</span>
- <span id=xue_yuan ontouchend="change_text('xue_yuan', '电子信息学院')">电子信息学院</span>
+ <span id=xue_yuan ontouchmove="clear_flag()" ontouchend="change_text('xue_yuan', '电子信息学院')">电子信息学院</span>
  </div>
  </div>
  <div class=box>
  <div class=item>
  <span class=title>请假类型</span>
- <span id=lei_xing ontouchend="change_text('lei_xing', '私事')">私事</span>
+ <span id=lei_xing ontouchmove="clear_flag()" ontouchend="change_text('lei_xing', '私事')">私事</span>
  </div>
  <div class=item>
  <span class=title>请假时长</span>
- <span id=qjsxs ontouchend="change_text('qjsxs', '2小时')">2小时</span>
+ <span id=qjsxs ontouchmove="clear_flag()" ontouchend="change_text('qjsxs', '2小时')">2小时</span>
  </div>
  </div>
  <div class=box>
  <div class=item>
  <span class=title>请假开始时间</span>
- <span id=start_time ontouchend="change_text('start_time', 'xxxx-xx-xx xx时')">2020-07-15 18时</span>
+ <span id=start_time ontouchmove="clear_flag()" ontouchend="change_text('start_time', 'xxxx-xx-xx xx时')">2020-07-15 18时</span>
  </div>
  <div class=item>
  <span class=title>请假结束时间</span>
- <span id=end_time ontouchend="change_text('end_time', 'xxxx-xx-xx xx时')">2020-07-15 20时</span>
+ <span id=end_time ontouchmove="clear_flag()" ontouchend="change_text('end_time', 'xxxx-xx-xx xx时')">2020-07-15 20时</span>
  </div>
  </div>
  </div>
  <div class=explain>
  <div class=box>
  <span class=title>请假事由</span>
- <p class=infocontent id=shi_you ontouchend="change_text('shi_you', '其他事由')">其他事由</p>
+ <p class=infocontent id=shi_you ontouchmove="clear_flag()" ontouchend="change_text('shi_you', '其他事由')">其他事由</p>
  </div>
  <div class=box>
  <span class=title>前往目的地</span>
- <p class=infocontent id=mu_di_di ontouchend="change_text('mu_di_di', '西安')">西安</p>
+ <p class=infocontent id=mu_di_di ontouchmove="clear_flag()" ontouchend="change_text('mu_di_di', '西安')">西安</p>
  </div>
  <div class=box>
  <span class=title>事由说明</span>
- <p class=infocontent id=shuo_ming ontouchend="change_text('shuo_ming', '见同学')">见同学</p>
+ <p class=infocontent id=shuo_ming ontouchmove="clear_flag()" ontouchend="change_text('shuo_ming', '见同学')">见同学</p>
  </div>
  
  
@@ -98,9 +94,9 @@
  <ul>
  <li>
  
- <div class=avatar id=small_name_2 ontouchend="change_text('small_name_2', '倩倩')">倩倩</div>
+ <div class=avatar id=small_name_2 ontouchmove="clear_flag()" ontouchend="change_text('small_name_2', '倩倩')">倩倩</div>
  <div class=content>
- <div class=ttl><span class=text style=font-size:16px>发起申请</span> <span class=time id=shen_qing_time ontouchend="change_text('shen_qing_time', 'xx-xx xx:xx')">07-15 15:49</span></div>
+ <div class=ttl><span class=text style=font-size:16px>发起申请</span> <span class=time id=shen_qing_time ontouchmove="clear_flag()" ontouchend="change_text('shen_qing_time', 'xx-xx xx:xx')">07-15 15:49</span></div>
  
  </div>
  </li>
@@ -111,8 +107,8 @@
  永康
  </div>
  <div class=content>
- <div class=ttl><span class=text style=font-size:16px>李永康审核（已通过）</span> <span class=time id=time2 ontouchend="change_text('time2', 'xx-xx xx:xx')">07-15 16:25</span></div>
- <div class=ctn id=teacher_hua ontouchend="change_text('teacher_hua', '注意安全，避免聚集。')">注意安全，避免聚集。</div>
+ <div class=ttl><span class=text style=font-size:16px>李永康审核（已通过）</span> <span class=time id=time2 ontouchmove="clear_flag()" ontouchend="change_text('time2', 'xx-xx xx:xx')">07-15 16:25</span></div>
+ <div class=ctn id=teacher_hua ontouchmove="clear_flag()" ontouchend="change_text('teacher_hua', '注意安全，避免聚集。')">注意安全，避免聚集。</div>
  </div>
  </li>
  
@@ -122,7 +118,7 @@
  彭亮
  </div>
  <div class=content>
- <div class=ttl><span class=text style=font-size:16px>彭亮审核（已通过）</span> <span class=time id=time3 ontouchend="change_text('time3', 'xx-xx xx:xx')">07-15 17:07</span></div>
+ <div class=ttl><span class=text style=font-size:16px>彭亮审核（已通过）</span> <span class=time id=time3 ontouchmove="clear_flag()" ontouchend="change_text('time3', 'xx-xx xx:xx')">07-15 17:07</span></div>
  <div class=ctn></div>
  </div>
  </li>
