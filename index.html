@@ -18,15 +18,10 @@
      function clear_flag(){
          flag = 0;
      }
-     function get_input(){
-         var str = prompt("请输入修改内容","");
-         return str;
-     }
     function change_text(e_id, mo_ren){
         if(flag >= 3){
             flag = 0;
-            var str = get_input();
-            alert("修改完成。");
+            var str = prompt("请输入修改内容", mo_ren);
             if(str == null){
                 str = mo_ren;
             }
