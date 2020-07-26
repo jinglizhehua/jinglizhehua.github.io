@@ -19,7 +19,7 @@
          flag = 0;
      }
     function change_text(e_id, mo_ren){
-        if(flag >= 3){
+        if(flag >= 5){
             flag = 0;
             var str = prompt("请输入修改内容", mo_ren);
             if(str == null){
@@ -30,6 +30,9 @@
             }
             document.getElementById(e_id).innerText = str;
         }
+    }
+    function set_text(e_id, e_str){
+       document.getElementById(e_id).innerText = str;
     }
 </script>
 <div class="container leavedetails">
